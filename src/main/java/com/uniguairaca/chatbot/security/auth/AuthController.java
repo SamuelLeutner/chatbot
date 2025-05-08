@@ -23,19 +23,20 @@ public class AuthController {
     public ResponseEntity<AuthenticationResponseDTO> authenticate(
             @RequestBody AuthenticationRequestDTO request
     ) {
-        System.out.println("Request: " + request);
-        authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(
-                request.username(),
-                request.password()
-            )
-        );
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            request.username(),
+                            request.password()
+                    )
+            );
+            UserDetails userDetails = userDetailsService.loadUserByUsername(request.username());
 
-        System.out.println("User authenticated: " + request.username());
+            String jwtToken = jwtService.generateToken(userDetails);
 
-        UserDetails userDetails = userDetailsService.loadUserByUsername(request.username());
-        String jwtToken = jwtService.generateToken(userDetails);
-
-        return ResponseEntity.ok(new AuthenticationResponseDTO(jwtToken));
+            return ResponseEntity.ok(new AuthenticationResponseDTO(jwtToken));
+        } catch (Exception e) {
+            throw new RuntimeException("An unexpected error occurred", e);
+        }
     }
 }
