@@ -1,4 +1,4 @@
-package com.uniguairaca.chatbot.dto;
+package com.uniguairaca.chatbot.dto.response;
 
 public record AuthenticationResponseDTO(
         String token

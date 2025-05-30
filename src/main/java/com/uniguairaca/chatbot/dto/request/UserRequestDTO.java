@@ -1,4 +1,4 @@
-package com.uniguairaca.chatbot.dto;
+package com.uniguairaca.chatbot.dto.request;
 
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Email;

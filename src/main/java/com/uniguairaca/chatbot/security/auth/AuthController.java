@@ -4,8 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.uniguairaca.chatbot.security.jwt.JwtService;
-import com.uniguairaca.chatbot.dto.AuthenticationRequestDTO;
-import com.uniguairaca.chatbot.dto.AuthenticationResponseDTO;
+import com.uniguairaca.chatbot.dto.request.AuthenticationRequestDTO;
+import com.uniguairaca.chatbot.dto.response.AuthenticationResponseDTO;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -3,9 +3,10 @@ package com.uniguairaca.chatbot.controller;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import com.uniguairaca.chatbot.dto.UserCreateDTO;
+import com.uniguairaca.chatbot.dto.response.UserResponseDTO;
+
 import org.springframework.web.bind.annotation.*;
 import com.uniguairaca.chatbot.mapper.UserMapper;
-import com.uniguairaca.chatbot.dto.UserResponseDTO;
 import com.uniguairaca.chatbot.service.UserService;
 import org.springframework.validation.annotation.Validated;
 

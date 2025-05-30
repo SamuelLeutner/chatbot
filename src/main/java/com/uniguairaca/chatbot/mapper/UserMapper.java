@@ -1,7 +1,6 @@
 package com.uniguairaca.chatbot.mapper;
 
-import com.uniguairaca.chatbot.dto.UserCreateDTO;
-import com.uniguairaca.chatbot.dto.UserResponseDTO;
+import com.uniguairaca.chatbot.dto.response.UserResponseDTO;
 import com.uniguairaca.chatbot.model.User;
 import org.springframework.stereotype.Component;
 
