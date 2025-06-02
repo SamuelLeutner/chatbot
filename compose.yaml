@@ -8,6 +8,8 @@ services:
       POSTGRES_DB: chatbot_uniguairaca
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
+    networks:
+      - uniguairaca_network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U admin"]
       interval: 5s
@@ -19,19 +21,15 @@ services:
     restart: always
     ports:
       - '8080:8080'
+    networks:
+      - uniguairaca_network
     depends_on:
       - postgres
 
-  rabbitmq:
-    image: rabbitmq:3-management
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-    environment:
-      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
-      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
-    volumes:
-      - rabbitmq_data:/var/lib/rabbitmq
-
 volumes:
   rabbitmq_data:
+
+networks:
+  uniguairaca_network:
+    external: true
+  

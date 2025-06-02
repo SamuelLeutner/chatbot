@@ -22,7 +22,7 @@ public class ChatbotController {
     public ResponseEntity<QRCodeResponseDTO> requestQRCode(@RequestBody(required = false) QRCodeRequestDTO requestDTO) {
         if (requestDTO == null) {
             // TODO: Get microsservice url
-            String callbackUrl = ""
+            String callbackUrl = "";
             requestDTO = new QRCodeRequestDTO("my-chatbot-session-" + System.currentTimeMillis(), callbackUrl);
         }
 
